@@ -1,7 +1,6 @@
 package com.ashindigo.pi.tftcontroller.apps;
 
 import java.io.File;
-import java.io.IOException;
 import java.text.NumberFormat;
 
 public class MonitorThread extends Thread {

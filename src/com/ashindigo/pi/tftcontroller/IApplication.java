@@ -5,4 +5,6 @@ public interface IApplication {
 	public void open();
 	
 	public void exit();
+	
+	public String getName();
 }

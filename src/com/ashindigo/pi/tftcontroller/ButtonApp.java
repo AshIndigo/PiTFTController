@@ -1,5 +1,7 @@
 package com.ashindigo.pi.tftcontroller;
 
+import java.awt.Insets;
+
 import javax.swing.Icon;
 import javax.swing.JButton;
 
@@ -22,11 +24,13 @@ public class ButtonApp extends JButton {
 	public ButtonApp(String text, IApplication app) {
 		super(text);
 		this.app = app;
+		this.setMargin(new Insets(0,0,0,0));
 	}
 
 	public ButtonApp(String text, Icon icon, IApplication app) {
 		super(text, icon);
 		this.app = app;
+		this.setMargin(new Insets(0,0,0,0));
 	}
 
 }

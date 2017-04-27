@@ -1,5 +1,7 @@
 package com.ashindigo.pi.tftcontroller;
 
+import java.io.IOException;
+
 import javax.swing.JFrame;
 
 import com.ashindigo.pi.tftcontroller.apps.MonitorThread;
@@ -21,11 +23,12 @@ public class PiTFTControllerMain {
 
 	static JFrame mainFrame = new JFrame();
 
-	public static void main(String[] args) {
-		//Reflections reflections = new Reflections("com.ashindigo", new SubTypesScanner(false));
-		//Collection<String> directSubtypes = reflections.getStore().get(SubTypesScanner.class).get(Object.class.getName());
+	public static void main(String[] args) throws InstantiationException, IllegalAccessException, IOException, ClassNotFoundException {
+		AppLoader.loadExternal();
+		AppLoader.loadInternal();
 		new MonitorThread().start();
 		mainFrame.setSize(320, 480);
+		mainFrame.setLayout(null);
 		//System.gc(); // Why? Why not?
 		//mainFrame.setExtendedState(JFrame.MAXIMIZED_BOTH); // Uncomment to make full screen
 		//mainFrame.setUndecorated(true); // Removes window buttons
@@ -34,7 +37,7 @@ public class PiTFTControllerMain {
 		AppList.setupList();
 		setupButtons();
 	}
-
+	
 	private static void setupButtons() {
 		int x = 9;
 		int y = 7;

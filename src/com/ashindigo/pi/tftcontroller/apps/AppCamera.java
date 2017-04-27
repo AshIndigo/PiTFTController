@@ -27,4 +27,9 @@ public class AppCamera implements IApplication {
 		camera.stop();
 	}
 
+	@Override
+	public String getName() {
+		return "Camera";
+	}
+
 }

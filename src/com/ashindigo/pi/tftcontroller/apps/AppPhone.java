@@ -87,4 +87,9 @@ public class AppPhone implements IApplication {
 		appFrame.dispose();
 	}
 
+	@Override
+	public String getName() {
+		return "Phone";
+	}
+
 }

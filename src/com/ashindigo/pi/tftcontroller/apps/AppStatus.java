@@ -88,6 +88,11 @@ public class AppStatus implements IApplication {
 	@Override
 	public void exit() {
 		appFrame.dispose();
+	}
+
+	@Override
+	public String getName() {
+		return "Status";
 	}	
 
 }

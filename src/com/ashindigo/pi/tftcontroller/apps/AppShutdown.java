@@ -1,5 +1,6 @@
 package com.ashindigo.pi.tftcontroller.apps;
 
+import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
@@ -21,9 +22,10 @@ public class AppShutdown implements IApplication {
 		// mainFrame.setUndecorated(true); // Removes window buttons
 		appFrame.setSize(320, 480);
 		appFrame.setVisible(true);
-		JButton shutdown = new JButton("Poweroff");
+		JButton shutdown = new JButton("Shutdown");
 		shutdown.setSize(90, 90);
 		shutdown.setLocation(50, 50);
+		shutdown.setMargin(new Insets(0,0,0,0));
 		shutdown.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -89,6 +91,11 @@ public class AppShutdown implements IApplication {
 	@Override
 	public void exit() {
 		appFrame.dispose();
+	}
+
+	@Override
+	public String getName() {
+		return "Power";
 	}
 
 }

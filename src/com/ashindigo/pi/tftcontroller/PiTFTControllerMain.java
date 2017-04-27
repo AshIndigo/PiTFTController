@@ -2,6 +2,8 @@ package com.ashindigo.pi.tftcontroller;
 
 import javax.swing.JFrame;
 
+import com.ashindigo.pi.tftcontroller.apps.MonitorThread;
+
 /*
  * App notes
  * - Shutdown / Reboot
@@ -10,7 +12,9 @@ import javax.swing.JFrame;
  * - Connection Manager
  * - Update
  * - Music Client
- * 
+ * - Dialer (Needs FONA Module)
+ * - Status Checker
+ * - IRC/Chat client 
  * Allow for external apps to be loaded in a folder from jars
  */
 public class PiTFTControllerMain {
@@ -18,6 +22,9 @@ public class PiTFTControllerMain {
 	static JFrame mainFrame = new JFrame();
 
 	public static void main(String[] args) {
+		//Reflections reflections = new Reflections("com.ashindigo", new SubTypesScanner(false));
+		//Collection<String> directSubtypes = reflections.getStore().get(SubTypesScanner.class).get(Object.class.getName());
+		new MonitorThread().start();
 		mainFrame.setSize(320, 480);
 		//System.gc(); // Why? Why not?
 		//mainFrame.setExtendedState(JFrame.MAXIMIZED_BOTH); // Uncomment to make full screen

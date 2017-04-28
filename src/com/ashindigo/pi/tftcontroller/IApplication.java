@@ -7,4 +7,6 @@ public interface IApplication {
 	public void exit();
 	
 	public String getName();
+	
+	public void rotate(EnumRotate rotation);
 }

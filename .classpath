@@ -16,7 +16,6 @@
 			<attribute name="javadoc_location" value="jar:file:/C:/Users/Asher/Pictures/Digital%20Design%20Tape%20Measure%20Photos/javadoc/javadoc.zip!/"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/Asher/Pictures/Digital Design Tape Measure Photos/examples/demo-view-1.1.1.jar"/>
 	<classpathentry kind="con" path="org.eclipse.m2e.MAVEN2_CLASSPATH_CONTAINER">
 		<attributes>
 			<attribute name="maven.pomderived" value="true"/>

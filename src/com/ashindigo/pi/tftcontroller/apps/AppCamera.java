@@ -1,11 +1,17 @@
 package com.ashindigo.pi.tftcontroller.apps;
 
-import javax.swing.JFrame;
+import java.io.IOException;
 
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+
+import com.ashindigo.pi.tftcontroller.EnumRotate;
 import com.ashindigo.pi.tftcontroller.IApplication;
 import com.hopding.jrpicam.RPiCamera;
 import com.hopding.jrpicam.exceptions.FailedToRunRaspistillException;
 
+// WIP for now
 public class AppCamera implements IApplication {
 
 	JFrame appFrame = new JFrame();
@@ -15,8 +21,12 @@ public class AppCamera implements IApplication {
 	public void open() {
 		try {
 			camera = new RPiCamera();
-			camera.turnOnPreview();
-		} catch (FailedToRunRaspistillException e) {
+			appFrame.setSize(320, 480);
+			appFrame.setLayout(null);
+			JLabel label = new JLabel(new ImageIcon(camera.takeBufferedStill()));
+			label.setBounds(0, 0, 100, 100);
+			appFrame.add(label);
+		} catch (FailedToRunRaspistillException | IOException | InterruptedException e) {
 			e.printStackTrace();
 		}
 	}
@@ -30,6 +40,12 @@ public class AppCamera implements IApplication {
 	@Override
 	public String getName() {
 		return "Camera";
+	}
+
+	@Override
+	public void rotate(EnumRotate rotation) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

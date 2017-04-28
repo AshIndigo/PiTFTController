@@ -10,6 +10,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JProgressBar;
 
+import com.ashindigo.pi.tftcontroller.EnumRotate;
 import com.ashindigo.pi.tftcontroller.IApplication;
 import com.sun.management.OperatingSystemMXBean;
 
@@ -93,6 +94,12 @@ public class AppStatus implements IApplication {
 	@Override
 	public String getName() {
 		return "Status";
+	}
+
+	@Override
+	public void rotate(EnumRotate rotation) {
+		// TODO Auto-generated method stub
+		
 	}	
 
 }

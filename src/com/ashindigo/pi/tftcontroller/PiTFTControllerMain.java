@@ -1,35 +1,41 @@
 package com.ashindigo.pi.tftcontroller;
 
 import java.io.IOException;
-
 import javax.swing.JFrame;
 
 import com.ashindigo.pi.tftcontroller.apps.MonitorThread;
 
 /*
  * App notes
- * - Shutdown / Reboot
+ * - Shutdown / Reboot - Done
  * - Terminal
- * - Exit button
- * - Connection Manager
- * - Update
+ * - Connection Manager for bluetooth and WiFi
+ * - Update 
  * - Music Client
- * - Dialer (Needs FONA Module)
- * - Status Checker
- * - IRC/Chat client 
- * Allow for external apps to be loaded in a folder from jars
+ * - Dialer (Needs FONA Module) - Need to add dial function
+ * - Status Checker - Need heat checker
+ * - IRC/Chat client
+ * - Retropie!
+ * - Web browser
+ * - File manager - Could just use the terminal instead though
+ * Allow for external apps to be loaded in a folder from jars - Done
  */
 public class PiTFTControllerMain {
 
 	static JFrame mainFrame = new JFrame();
+	public static EnumRotate rotationMode = EnumRotate.VERTICAL;
 
 	public static void main(String[] args) throws InstantiationException, IllegalAccessException, IOException, ClassNotFoundException {
+		if (args.length > 0) {
+			switch (Integer.parseInt(args[0])) {
+			case 0: rotationMode = EnumRotate.VERTICAL; mainFrame.setSize(320, 480); break; // Vertical
+			case 1: rotationMode = EnumRotate.HORIZONTAL; mainFrame.setSize(480, 320); break; // Horizontal
+			}
+		}
 		AppLoader.loadExternal();
 		AppLoader.loadInternal();
 		new MonitorThread().start();
-		mainFrame.setSize(320, 480);
 		mainFrame.setLayout(null);
-		//System.gc(); // Why? Why not?
 		//mainFrame.setExtendedState(JFrame.MAXIMIZED_BOTH); // Uncomment to make full screen
 		//mainFrame.setUndecorated(true); // Removes window buttons
 		mainFrame.setVisible(true);

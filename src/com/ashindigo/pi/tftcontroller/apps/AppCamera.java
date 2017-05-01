@@ -21,12 +21,14 @@ public class AppCamera implements IApplication {
 	public void open() {
 		try {
 			camera = new RPiCamera();
-			appFrame.setSize(320, 480);
+			appFrame.setSize(480, 320);
 			appFrame.setLayout(null);
+			appFrame.setVisible(true);
 			JLabel label = new JLabel(new ImageIcon(camera.takeBufferedStill()));
+			// JLabel label = new JLabel("Test");
 			label.setBounds(0, 0, 100, 100);
 			appFrame.add(label);
-		} catch (FailedToRunRaspistillException | IOException | InterruptedException e) {
+		} catch (IOException | InterruptedException | FailedToRunRaspistillException e) {
 			e.printStackTrace();
 		}
 	}
@@ -45,7 +47,7 @@ public class AppCamera implements IApplication {
 	@Override
 	public void rotate(EnumRotate rotation) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 }

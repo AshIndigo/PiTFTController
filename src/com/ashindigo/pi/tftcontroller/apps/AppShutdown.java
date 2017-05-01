@@ -121,8 +121,8 @@ public class AppShutdown implements IApplication {
 			exit.setLocation(100, 160);
 			shell.setSize(90, 90);
 			shell.setLocation(260, 160);
-			back.setLocation(100, 385);
-			back.setSize(100, 40);
+			back.setLocation(190, 250);
+			back.setSize(70, 30);
 			
 		}
 		

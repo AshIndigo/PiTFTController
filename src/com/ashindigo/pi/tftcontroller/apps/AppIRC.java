@@ -1,34 +1,32 @@
 package com.ashindigo.pi.tftcontroller.apps;
 
-import java.io.IOException;
-
 import com.ashindigo.pi.tftcontroller.EnumRotate;
 import com.ashindigo.pi.tftcontroller.IApplication;
 
-public class AppRetropie implements IApplication {
+public class AppIRC implements IApplication {
 
 	@Override
 	public void open() {
-		try {
-			Process proc = Runtime.getRuntime().exec("emulationstation");
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+		// TODO Auto-generated method stub
+		
 	}
 
 	@Override
 	public void exit() {
-
+		// TODO Auto-generated method stub
+		
 	}
 
 	@Override
 	public String getName() {
-		return "Retropie";
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	@Override
 	public void rotate(EnumRotate rotation) {
+		// TODO Auto-generated method stub
 		
 	}
-
+	
 }

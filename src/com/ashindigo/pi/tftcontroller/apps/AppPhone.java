@@ -92,7 +92,6 @@ public class AppPhone implements IApplication {
 
 	@Override
 	public void rotate(EnumRotate rotation) {
-		//appFrame.removeAll();
 		if (rotation == EnumRotate.VERTICAL) {
 			appFrame.setSize(320, 480);
 			text.setLocation(10, 10);

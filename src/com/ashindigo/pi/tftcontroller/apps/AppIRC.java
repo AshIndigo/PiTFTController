@@ -17,13 +17,17 @@ public class AppIRC implements IApplication {
 	
 	static JFrame appFrame = new JFrame();
 	static JTextField msgBox = new JTextField();
-	public static JTextPane chatBox = new JTextPane();
+	public static JTextPane chatBox = new JTextPane(); 
 	static JButton enterButton = new JButton();
 
 	@Override
 	public void open() {
 			appFrame.setLayout(null);
 			appFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+			if (PiTFTControllerMain.fullScreen) {
+				appFrame.setExtendedState(JFrame.MAXIMIZED_BOTH); // Uncomment to make full screen
+				appFrame.setUndecorated(true); // Removes window buttons
+			}
 			appFrame.add(msgBox);
 			appFrame.add(chatBox);
 			appFrame.setVisible(true);
@@ -31,6 +35,10 @@ public class AppIRC implements IApplication {
 			enterButton.addActionListener(new ActionListener() {
 				@Override
 				public void actionPerformed(ActionEvent e) {
+					if (msgBox.getText().equals("/exit")) {
+						exit();
+						return;
+					}
 					IRCThread.bot.sendIRC().message("#ashindigo", msgBox.getText());
 					chatBox.setText(AppIRC.chatBox.getText() + "\n" + IRCThread.bot.getNick() + ": " + msgBox.getText());
 					msgBox.setText("");
@@ -62,8 +70,10 @@ public class AppIRC implements IApplication {
 			chatBox.setLocation(10, 10);
 		} else if (rotation == EnumRotate.HORIZONTAL) {
 			appFrame.setSize(480, 320);
-			msgBox.setLocation(10, 10);
-			msgBox.setSize(280, 50);
+			msgBox.setLocation(10, 230);
+			msgBox.setSize(440, 25);
+			chatBox.setSize(440, 210);
+			chatBox.setLocation(10, 10);
 		}
 	}
 }

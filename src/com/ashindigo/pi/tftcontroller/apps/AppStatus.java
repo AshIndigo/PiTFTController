@@ -33,8 +33,10 @@ public class AppStatus implements IApplication {
 	public void open() {
 		appFrame.setLayout(null);
 		appFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		// mainFrame.setExtendedState(JFrame.MAXIMIZED_BOTH); // Uncomment to make full screen
-		//appFrame.setUndecorated(true); // Removes window buttons
+		if (PiTFTControllerMain.fullScreen) {
+			appFrame.setExtendedState(JFrame.MAXIMIZED_BOTH); // Uncomment to make full screen
+			appFrame.setUndecorated(true); // Removes window buttons
+		}
 		appFrame.setVisible(true);
 		rotate(PiTFTControllerMain.rotationMode);
 		memBar.setMinimum(0);

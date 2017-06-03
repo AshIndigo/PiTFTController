@@ -10,6 +10,7 @@ public class AppRetropie implements IApplication {
 	@Override
 	public void open() {
 		try {
+			//Process proc0 = Runtime.getRuntime().exec("pkill x");
 			Process proc = Runtime.getRuntime().exec("emulationstation");
 		} catch (IOException e) {
 			e.printStackTrace();

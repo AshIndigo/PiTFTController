@@ -20,14 +20,14 @@ public class IRCThread extends ListenerAdapter implements Runnable {
 
 	@Override
 	public void run() {
-		try {
+		//try {
 			Configuration configuration = new Configuration.Builder().setName("AshIndigoPi").addServer("irc.esper.net")
 					.addAutoJoinChannel("#ashindigo").setRealName("AshIndigoPi").addListener(this)
 					.buildConfiguration();
 			bot = new PircBotX(configuration);
-			bot.startBot();
-		} catch (IOException | IrcException e) {
-			e.printStackTrace();
-		}
+			//bot.startBot();
+		//} catch (IOException | IrcException e) {
+			//e.printStackTrace();
+		//}
 	}
 }

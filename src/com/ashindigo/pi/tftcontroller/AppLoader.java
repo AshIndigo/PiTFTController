@@ -33,7 +33,7 @@ public class AppLoader {
 		classLoadersList.add(ClasspathHelper.staticClassLoader());
 
 		Reflections reflections = new Reflections(new ConfigurationBuilder()
-		    .setScanners(new SubTypesScanner(false /* don't exclude Object.class */), new ResourcesScanner())
+		    .setScanners(new SubTypesScanner(false), new ResourcesScanner())
 		    .setUrls(ClasspathHelper.forClassLoader(classLoadersList.toArray(new ClassLoader[0])))
 		    .filterInputsBy(new FilterBuilder().include(FilterBuilder.prefix("com.ashindigo.pi.tftcontroller.apps"))));
 		Set<Class<?>> classes = reflections.getSubTypesOf(Object.class);

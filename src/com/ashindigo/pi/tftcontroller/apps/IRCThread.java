@@ -1,10 +1,7 @@
 package com.ashindigo.pi.tftcontroller.apps;
 
-import java.io.IOException;
-
 import org.pircbotx.Configuration;
 import org.pircbotx.PircBotX;
-import org.pircbotx.exception.IrcException;
 import org.pircbotx.hooks.ListenerAdapter;
 import org.pircbotx.hooks.types.GenericMessageEvent;
 
